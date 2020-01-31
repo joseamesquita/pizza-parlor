@@ -13,6 +13,16 @@ Order.prototype.assignedID = function () {
   return this.currentId;
 }
 
+Order.prototype.findPizza = function (id) {
+  for (var i = 0; i < this.pizzas.length; i++) {
+    if (this.pizzas[i]) {
+      if (this.pizzas[i].id === id) {
+        return this.pizzas[i];
+      }
+    }
+  }
+}
+
 $(document).ready(function () {
 
 });
