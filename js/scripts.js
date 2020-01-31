@@ -5,9 +5,14 @@ function Order() {
     this.currentId = 0
 }
 Order.prototype.addPizza = function (pizza) {
-  this.currentId += 1;
+  pizza.id = this.assignedID();
   this.pizzas.push(pizza);
 }
+Order.prototype.assignedID = function () {
+  this.currentId += 1;
+  return this.currentId;
+}
+
 $(document).ready(function () {
 
 });
