@@ -54,6 +54,19 @@ Pizza.prototype.prices = function (id) {
   }
 }
 
+//User Interface Logic
+
+var order = new Order();
+
+function showOrder(totalOrder) {
+  var total = $("ul#total-pizzas");
+  var htmlInfo = "";
+  totalOrder.pizzas.forEach(function (pizza) {
+    htmlInfo += "<li id=" + pizza.id + ">" + "$" + pizza.price + " " + pizza.size + " Pizza(+)</li"
+  });
+  total.html(htmlInfo)
+}
+
 $(document).ready(function () {
 
 });
