@@ -23,7 +23,7 @@
 ## Specs
 
 * small pizza costs $6
-* medium pizza costs$ $12
+* medium pizza costs $12
 * large pizza costs $18
 * extra-large pizza costs $24
 * toppings are $1
