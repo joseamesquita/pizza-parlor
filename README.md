@@ -12,6 +12,8 @@
 
 ## Setup/Installation Requirements
 
+Click here to view the webpage: https://joseamesquita.github.io/pizza-parlor/
+
 1. visit https://github.com/joseamesquita/pizza-parlor.git
 2. click the green button: Clone or download 
 3. select copy and open terminal from your desktop
