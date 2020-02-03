@@ -30,9 +30,9 @@
 
 selections | total cost
 
-small pizza with chesse, pepperoni | $8
-medium pizza with chicken | $13
-large pizza with pineapple | $19
+* small pizza with chesse, pepperoni | $8
+* medium pizza with chicken | $13
+* large pizza with pineapple | $19
 
 
 ## Known Bugs
