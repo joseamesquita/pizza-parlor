@@ -14,36 +14,39 @@
     <div class="jumbotron">
       <h1>Pizza Parlor</h1>
     </div>
-  </div>
-  <div class="order">
-    <h1>Let's Place Your Order</h1>
-    <form class="form-group" id="currentOrder">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="size">
+    <div class="order">
+      <h1>Let's Place Your Order</h1>
+      <form class="form-group" id="currentOrder">
+        <div class="row">
+          <div class="col-md-6">
             <h3>Choose Your Pizza Size</h3>
-            <select id="pizza-size">
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-              <option value="extra-large">Extra Large</option>
+            <select class="form-control" id="sizes">
+              <option name="size" value="6">Small</option>
+              <option name="size" value="12">Medium</option>
+              <option name="size" value="18">Large</option>
+              <option name="size" value="24">Extra-Large</option>
             </select>
           </div>
+          <div class="col-md-6">
+            <div id="toppings">
+              <h3>Choose Your Pizza Toppings</h3>
+              <input type="checkbox" name="topping" value="1">Chesse</br>
+              <input type="checkbox" name="topping" value="1">Pepperoni</br>
+              <input type="checkbox" name="topping" value="1">Chicken</br>
+              <input type="checkbox" name="topping" value="1">Saussage</br>
+              <input type="checkbox" name="topping" value="1">Pineapple</br>
+            </div>
+          </div>
+          <button type="submit" name="button" class="btn btn-danger">Submit Order</button>
         </div>
-        <div class="col-md-6">
-          <div class="toppings">
-            <h3>Choose Your Pizza Toppings</h3>
-            <select id="pizza-toppings">
-              <option value="chesse">Chesse</option>
-              <option value="pepperoni">Pepperoni</option>
-              <option value="chicken">Chicken</option>
-              <option value="saussage">Saussage</option>
-              <option value="pineapple">Pineapple</option>
-            </select>
+        <div class="row">
+          <div class="results">
+            <h3>Your total is:</h3>
+            <h3>$<span id="pizza-cost"></span></h3>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 
 </body>

@@ -2,32 +2,16 @@
 
 function Order() {
   this.pizzas = [],
-    this.currentId = 0
+    this.cost = [];
 }
 function Pizza(size, toppings) {
   this.size = size,
-    this.toppings = toppings,
-    this.price = 6
+    this.toppings = toppings;
 }
 
 Order.prototype.addPizza = function (pizza) {
-  pizza.id = this.assignedID();
+  pizza.cost = pizza.toppingCost(pizza);
   this.pizzas.push(pizza);
-}
-Order.prototype.assignedID = function () {
-  this.currentId += 1;
-  return this.currentId;
-}
-
-Order.prototype.findPizza = function (id) {
-  for (var i = 0; i < this.pizzas.length; i++) {
-    if (this.pizzas[i]) {
-      if (this.pizzas[i].id === id) {
-        return this.pizzas[i];
-      }
-    }
-  }
-  return false;
 }
 
 Order.prototype.deletePizza = function (id) {
@@ -42,31 +26,43 @@ Order.prototype.deletePizza = function (id) {
   return false;
 }
 
-Pizza.prototype.prices = function (id) {
-  if (this.size === "small") {
-    this.price += 0;
-  } else if (this.size === "medium") {
-    this.price += 2;
-  } else if (this.size === "large") {
-    this.price += 4;
-  } else if (this.size === "extra-large") {
-    this.price += 6;
+Pizza.prototype.totalCost = function (arr) {
+  this.toppingCost = total;
+  var total = 0;
+  for (var i = 0; i < arr.length; i++) {
+    total += arr[i];
   }
+  return total + this.size;
 }
 
 //User Interface Logic
 
-var order = new Order();
-
-function showOrder(totalOrder) {
-  var total = $("ul#total-pizzas");
-  var htmlInfo = "";
-  totalOrder.pizzas.forEach(function (pizza) {
-    htmlInfo += "<li id=" + pizza.id + ">" + "$" + pizza.price + " " + pizza.size + " Pizza(+)</li"
-  });
-  total.html(htmlInfo)
-}
-
 $(document).ready(function () {
+  $("#currentOrder").submit(function (event) {
+    event.preventDefault();
+
+    var input = [];
+    $("input:checkbox[name=topping]:checked").each(function () {
+      var toppingCosts = parseInt($(this).val());
+      input.push(toppingCosts);
+    });
+
+    var inputToppings = [];
+    $("input:checkbox[name=topping]:checked").each(function () {
+      var top = $(this).val();
+      inputToppings.push(top);
+    });
+
+    var sizes = parseInt($("#sizes").val());
+
+    var newPizza = new Pizza(sizes, input);
+    console.log(newPizza);
+    var pizzaCost = newPizza.totalCost(input);
+    console.log(pizzaCost);
+
+    $("#pizza-cost").text(pizzaCost);
+    $(".results").show();
+
+  });
 
 });

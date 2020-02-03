@@ -1,0 +1,11 @@
+h2 {
+  color: white;
+}
+
+.results {
+  display: none;
+}
+
+select {
+  font-weight: normal;
+}
