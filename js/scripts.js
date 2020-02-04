@@ -2,16 +2,13 @@
 
 function Pizza(size, toppings) {
   this.size = size,
-    this.toppings = toppings;
+    this.toppings = toppings,
+    this.price = 0;
 }
 
-Pizza.prototype.totalCost = function (arr) {
-  this.toppingCost = total;
-  var total = 0;
-  for (var i = 0; i < arr.length; i++) {
-    total += arr[i];
-  }
-  return total + this.size;
+Pizza.prototype.totalCost = function () {
+  this.price = this.size + this.toppings.length;
+  return this.price;
 }
 
 //User Interface Logic
@@ -20,20 +17,25 @@ $(document).ready(function () {
   $("#currentOrder").submit(function (event) {
     event.preventDefault();
 
-    var input = [];
+    var toppingArray = [];
     $("input:checkbox[name=topping]:checked").each(function () {
-      var toppingCosts = parseInt($(this).val());
-      input.push(toppingCosts);
+      toppingArray.push($(this).val());
     });
 
-    var sizes = parseInt($("#sizes").val());
-    var newPizza = new Pizza(sizes, input);
-    var pizzaCost = newPizza.totalCost(input);
+    str = '<ul>';
+    toppingArray.forEach(function (element) {
+      str += '<li>' + element + '</li>';
+    });
 
+    str += '</ul>';
+    document.getElementById("toppings-include").innerHTML = str;
 
-    $("#pizza-cost").text(pizzaCost);
+    var size = parseInt($("#sizes").val());
+    var newPizza = new Pizza(size, toppingArray);
+    var cost = newPizza.totalCost(toppingArray)
+
+    $("#pizza-cost").text(cost);
     $(".results").show();
 
   });
-
 });
