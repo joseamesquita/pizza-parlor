@@ -30,11 +30,11 @@ Click here to view the webpage: https://joseamesquita.github.io/pizza-parlor/
 * extra-large pizza costs $24
 * toppings are $1
 
-selections | total cost
-
-* small pizza with chesse, pepperoni | $8
-* medium pizza with chicken | $13
-* large pizza with pineapple | $19
+Behavior | Input | Output |
+--- | --- | --- |
+allows users to choose a size | size: small | $6 
+allows users to choose a size and a topping | size: medium topping: Cheese | total is: $13 with toppings included
+allows users to choose a size and multiple toppings | size: large toppings: Chicken, Saussage, Pineapple | total is: $21 with toppings included 
 
 
 ## Known Bugs
